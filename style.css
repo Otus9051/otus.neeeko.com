@@ -7,7 +7,7 @@ html {
 	(and some other vars)
 	THIS IS SO COOL
 	*/
-	--hover-color: #1793d1;
+	--hover-color: #ff88d7;
 	--default-color: #5f676a;
 }
 
@@ -60,8 +60,8 @@ a:hover {
 
 .all {
 	display: flex;
-	padding: 5px;
-	gap: 5px;
+	padding: 50px;
+	gap: 50px;
 }
 
 .main {
