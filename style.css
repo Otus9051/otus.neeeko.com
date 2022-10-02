@@ -1,0 +1,178 @@
+html {
+	/*
+	ok let me explain
+	this sets the default color var which will be used when hovering over stuff (and the default one)
+	and if it gets overridden through something like `style="--hover-color: #foo"` in an html file it uses that color instead.
+	so basically I can make a the default and hover border colors be any color with a fallback to these
+	(and some other vars)
+	THIS IS SO COOL
+	*/
+	--hover-color: #1793d1;
+	--default-color: #5f676a;
+}
+
+body {
+	background-color: #220627;
+	color: #fff6da;
+	font-family: monospace;
+	font-size: 14px;
+	max-width: 1080px;
+	margin: auto;
+}
+
+h1,h2,h3,p {
+	margin: 10px 0 10px 0;
+}
+h2 {
+	font-size: 20px;
+}
+
+ul {
+	padding-left: 20px;
+}
+
+.censor {
+	background-color: #000000;
+	color: #000000;
+}
+.censor:hover {
+	color: inherit;
+}
+
+a {
+	color: #e8e7e4;
+	outline: none;
+}
+a:hover {
+	color: var(--hover-color);
+}
+
+.banner {
+	width: 100%;
+	max-height: auto;
+}
+
+.blog-image {
+	display: block;
+	margin: auto;
+	max-width: 100%;
+}
+
+.all {
+	display: flex;
+	padding: 5px;
+	gap: 5px;
+}
+
+.main {
+	display: flex;
+	flex: 1 1;
+	flex-direction: column;
+	min-width: 0;
+	gap: 5px;
+}
+
+.box {
+	border: 1px solid var(--hover-color);
+	border-left: 5px solid var(--hover-color);
+	padding: 0 10px 0 10px;
+}
+
+/* using box-shadow so that the colors at the corners aren't diagonal */
+#category {
+	border-left: 0px;
+	border-color: var(--default-color);
+	box-shadow: -5px 0px 0px 0px var(--hover-color);
+	margin-left: 5px;
+}
+#category:hover {
+	margin-left: 10px;
+	border-color: var(--hover-color);
+}
+#category:active {
+	border-style: dashed;
+}
+
+/* use with <pre> */
+.terminal {
+	background-color: #181b28;
+	color: #e8e7e4;
+	max-width: 600px;
+	border: 2px solid var(--default-color);
+	font-size: 13px;
+	tab-size: 4;
+	padding-left: 10px;
+	padding-right: 10px;
+	overflow: scroll;
+	min-width: 0px;
+}
+.terminal:hover {
+	border: 2px solid #285577;
+}
+
+.other {
+	position: sticky;
+	top: 5px;
+	width: 180px;
+}
+
+.links {
+	border: 1px solid var(--hover-color);
+	border-top: 5px solid var(--hover-color);
+	padding: 0 10px 0 10px;
+}
+
+.rainbow {
+	background-image: repeating-linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
+	background-size: 200% 100%;
+	-webkit-background-clip: text; /* yucky */
+	color: transparent;
+	animation: rainbow-text 2s linear infinite;
+}
+
+@keyframes rainbow-text { 
+	0%{background-position:200%}
+	100%{background-position:0%}
+}
+
+.button {
+	text-align: center;
+}
+
+.login {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+footer {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 10px;
+}
+
+/* I was feeling fancy today */
+@media screen and (max-width: 650px) {
+	.all {   
+		flex-direction: column-reverse;
+	}
+	.main {
+		max-width: 100%;
+	}
+	#category:hover {
+		margin-left: 5px;
+	}
+	.other {
+		width: 100%;
+		position: static;
+	}
+	.login {
+		display: none;
+	}
+	.links {
+		font-size: 16px;
+		text-align: right;
+	}
+	.button {
+		display: none;
+	}
+}
